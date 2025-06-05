@@ -27,7 +27,8 @@ def get_letter_grade(avg):
 @app.route("/students", methods=["POST"])
 def add_student():
     data = request.get_json()
-
+    name = data.get('name')
+    grades = data.get('grades', [])
 
 
 
