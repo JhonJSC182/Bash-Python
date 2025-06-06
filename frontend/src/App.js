@@ -30,8 +30,25 @@ function App() {
   }
 
   return (
-    <>
-    </>
+    <div>
+      <h2>Student Grade Calculator</h2>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Student Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+
+        {/* {grades.map((grade, i) => )} */}
+
+
+
+        
+      </form>
+    </div>
   );
 }
 
