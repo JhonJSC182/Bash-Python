@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './App.css'
 
 function App() {
   const [name, setName] = useState('');
@@ -31,9 +32,10 @@ function App() {
 
   return (
     <div>
-      <h2>Student Grade Calculator</h2>
+      <h2 className="title">Student Grade Calculator</h2>
+      <br></br>
 
-      <form onSubmit={handleSubmit}>
+      <form className="input-form" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Student Name"
@@ -41,13 +43,38 @@ function App() {
           onChange={(e) => setName(e.target.value)}
           required
         />
+        <br></br>
+        <br></br>
+        <br></br>
 
-        {/* {grades.map((grade, i) => )} */}
+        {grades.map((grade, i) => (
+          
+          <input 
+            key={i}
+            type="number"
+            placeholder={`Grade ${i+1}`}
+            value={grade}
+            onChange={(e) => handleGradeChange(i, e.target.value)}
+            required
+            
+          />
+        ))}
 
-
-
+        <br></br>
+        <br></br>
         
+
+        <button type="submit">Submit</button>
       </form>
+
+        {result && (
+          <div className="result">
+            <h3>Result for {result.name}</h3>
+            <p>Average: {result.average}</p>
+            <p>Letter Grade: {result.letter}</p>
+          </div>
+        )}
+      
     </div>
   );
 }
